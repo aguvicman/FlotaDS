@@ -1,125 +1,148 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://wwww.thymeleaf.org"> 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
 <head>
 	<meta charset="utf-8">
 	<title>Flota del sur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>    -->
 	<!--  Bootstrap core CSS -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link href="href=/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script  src="/js/viaje.js" th:href="@{/js/viaje.js}"></script>
+	<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
+						
+	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
 	
-	<!--Scroll reveal-->
-       <script src="https://unpkg.com/scrollreveal"></script>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 	
 <!--Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#"><h2>Flota del sur</h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#Home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Cotiza">Cotizador</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Quienes">Quienes somos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Tours">Tours</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Registro">Registrese</a>
-              </li>
+    <nav class="navbar navbar-default  navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      		<img  src="images/logo.png"  class="img-responsive" alt="Responsive image" width="400" height="100">               
+      </button>
+      
+      <a class="navbar-brand" href="#myPage"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Cotiza">Cotizador</a></li>
+        <li><a href="#Quienes">Quienes somos</a></li>
+        <li><a href="#Tours">Tours</a></li>
+        <li><a href="#contact">Viajes Especiales</a></li>
+        <li><button data-toggle="collapse" data-target="#login">Login</button></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-        </ul>
-      </div>
-        </div>
-  </nav>
+<!-- Log In -->
+<div id="login" class="collapse">
+<div class="container">
+  <h2>LOGIN</h2>
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Ingresa correo" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Ingresa contraseña" name="pswd">
+    </div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> recordar contraseña
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+</div>
   
   <!--Header-->
 <header id="Home">
 <div class="jumbotron text-center">
- <h1>Bienvenidos</h1>
- <p>A la mejor experiencia en Traslado</p>
- 
-
+ <h1 class="display-1">FLOTA DEL SUR</h1>
+ <h5 class="h2">Traslado Aeropuerto Santiago</h5>
 </div>
-
 <!-- Cotizador -->
 <div class="container">
-	    <div class="panel panel-default " id="panel1 ">
+	    <div class="panel panel-default " id="Cotiza">
 	    	<div class="panel-body ">
-	   	    	<h3>Test cotizador CRUD</h3>
+	   	    	<h3 class="display-4">Cotiza con nosotros</h3>
 	   			<p>
 	   			<div class="btn-group">
-	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ViajesController('list')">Listar</button>
-	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ViajesController('get')">Buscar</button>
-	           		<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ViajesController('insert')">Nuevo</button>
-	           		<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ViajesController('update')">Grabar</button>
-	           		<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ViajesController('delete')">Eliminar</button>
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('list')">Itinerarios</button>
+	           
 	            </div>
 	    		<p>
-	    	    <div class="alert alert-danger" id="msg" hidden="true">
-	  			</div>
+	    	    <div class="alert alert-danger" id="msg" hidden="false">
+	  			</div> 
 	        	<div class="input-group">
-	    			<span class="input-group-addon">Viaje_id</span>
-	    			<input id="viaje_id" type="number" class="form-control" name="viaje_id">
+	    			<span class="input-group-text shadow-sm">Origen</span>
+	    			<input id="origen" type="text" class="form-control" name="origen">
 	  			</div>
 	  			<p>
 	  			<div class="input-group">
-	    			<span class="input-group-addon">Cliente_id</span>
-	    			<input id="cliente_id" type="number" class="form-control" name="cliente_id" required>
+	    			<span class="input-group-text shadow-sm">Destino</span>
+	    			<input id="destino" type="text" class="form-control" name="destino" required>
 	  			</div>
+	  			<p>
 	   			<div class="input-group">
-	    			<span class="input-group-addon">Tipoviaje_id</span>
-	    			<input id="tipoviaje_id" type="number" class="form-control" name="tipoviaje_id" required>
-	  			</div>
-	     			<div class="input-group">
-	    			<span class="input-group-addon">Region_id</span>
-	    			<input id="region_id" type="number" class="form-control" name="region_id" required>
-	  			</div>
-	   			<div class="input-group">
-	    			<span class="input-group-addon">Comuna_id</span>
-	    			<input id="comuna_id" type="number" class="form-control" name="comuna_id" required>
-	  			</div>
-	  		   	<div class="input-group">
-	    			<span class="input-group-addon">Vehiculo_ppu</span>
-	    			<input id="vehiculo_ppu" type="number" class="form-control" name="vehiculo_ppu" required>
-	  			</div>
-	  			<div class="input-group">
-	    			<span class="input-group-addon">Conductor_id</span>
-	    			<input id="conductor_id" type="number" class="form-control" name="conductor_id" required>
-	  			</div>
-	  			<div class="input-group">
-	    			<span class="input-group-addon">Viaje_fecha</span>
-	    			<input id="viaje_fecha" type="date" class="form-control" name="viaje_fecha" step="0.01" placeholder="0.00" min="0.00" required>
-	  			</div>
-	  			<div class="input-group">
-	    			<span class="input-group-addon">Tipopago_id</span>
-	    			<input id="tipopago_id" type="number" class="form-control" name="tipopago_id" step="0.01" placeholder="0.00" min="0.00" required>
-	  			</div>
-	  			<div class="input-group">
-	    			<span class="input-group-addon">Costo</span>
+	    			<span class="input-group-text shadow-sm">Valor</span>
 	    			<input id="costo" type="number" class="form-control" name="costo" required>
 	  			</div>
 	  			<p>
+	     			<div class="input-group">
+	    			<span class="input-group-text shadow-sm">Cantidad de Pasajeros</span>
+	    			<input id="cant_pasajeros" type="number" class="form-control" name="cant_pasajeros" required>
+	  			</div>
+	  			<p>
+	  			</p>
+	  			<button type="button" class="btn btn-primary btn-sm align-right" onclick="javascript:ValoresController('insert')">Agendar</button>
 			</div>
 		</div>
 </div>
 
-
+<!-- Modal -->
+	<div id="myModal" class="modal fade"  role="dialog">
+  		<div class="modal-dialog modal-lg">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+      		<div class="modal-header">
+      		<h4 class="modal-title">ITINERARIOS</h4>
+        	<!-- <button type="button" class="close" data-dismiss="modal">Cerrar</button>  -->	
+      		</div>
+      		<div class="modal-body">
+      			<div class="table-responsive" style='height:100%' id='tableDivContainer'>
+      				<table class="table table-condensed" id='valoresTable' data-toggle="table" data-height="299">
+		        	<thead><tr>
+						<th data-field="origen">Origen</th>
+						<th data-field="destino">Destino</th>
+						<th data-field="costo">Valor</th>
+						<th data-field="cant_pasajeros">Cantidad de Pasajeros</th>
+					</tr>
+		        	</thead>
+		        	</table>
+		        </div>
+	      	</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      		</div>
+    	</div>
+		</div>
+	</div>
 
 </header>
 
@@ -132,11 +155,9 @@
  	</div>
 <section id="Quienes">
   <div class="container">
-  <h2>Flota del sur</h2>
+  <h2 class="display-4">Flota del sur</h2>
     <p class="h2 mb-2">
       Somos una Empresa familiar, dedicada al rubro de traslado de pasajeros. Desde el 2018, comenzamos a brindar apoyo a diferentes empresas, prestando servicios externos para el traslado de pacientes, trabajadores y servicios de transfer desde el aeropuerto a distintas partes de Santiago y regiones.
-<br>
-<hr>
 	<p>
      Contamos por el momento con dos Van con la capacidad para trasladar hasta 10 pasajeros, cada uno de nuestros conductores cuenta con Licencia clase A, seguro contra siniestros y accidentes, además contamos con seguro de pasajeros para su seguridad, solo deseamos que tu viaje sea el mas placentero.
     </p>
@@ -146,55 +167,71 @@
  	</div>
 </div>
 
-<!-- Iconos Propuesta Valor -->
-<div class="container-fluid text-center">
- 	<h2>Servicio Transfer</h2>
- 		<h4>Que ofrecemos</h4>
- <br>
- <div class="row slideanim">
- 	<div class="col-sm-4">
- 		<span class="glyphicon glyphicon-off logo-small" ></span>
- 		<h4>ENERGIA</h4>
-		 <p>Trabajamos con pasión</p>
- 	</div>
- <br>
- <div class="col-sm-4">
- 	<span class="glyphicon glyphicon-lock logo-small" ></span>
- 	<h4>TRABAJO TERMINADO</h4>
- 	<p>Te dejamos en la puerta de tu destino</p>
- </div>
- <br>
- <div class="col-sm-4">
- 	<span class="glyphicon glyphicon-certificate logo-small"></span>
-	 <h4 >CERTIFICADO</h4>
-	 <p >Contamos con todos los seguros y permisos para tu seguridad</p>
- </div>
- 
- </div>
- </div>
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2 class="display-4">VALORES</h2>
+  <h4>Nuestra filosofía</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-off logo-small"></span>
+      <h4>RAPIDEZ</h4>
+      <p>Servicios logísticos externos para cubrir sobre demanda</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <h4>ENERGÍA</h4>
+      <p>Porqué amamos nuestro trabajo lo hacemos con pasión!</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock logo-small"></span>
+      <h4>TRABAJO TERMINADO</h4>
+      <p>Muchos destinos para disfrutar y para llegar rapido</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-leaf logo-small"></span>
+      <h4>SUSTENTABLE</h4>
+      <p>Proyectos sustentables de eletromovilidad </p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4>EXPERIENCIA</h4>
+      <p>Más de 30 años de experiencia en el rubro y un amplio conocimiento de las rutas y destinos turisticos</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-wrench logo-small"></span>
+      <h4 style="color:#303030;">GARANTIA DE SATISFACCIÓN</h4>
+      <p>Compromiso de calidad contigo ;) </p>
+    </div>
+  </div>
+</div>
+
 
 <!--  TOURS DESTINOS -->
 <div id="Tours" class="container-fluid text-center bg-grey">
- <h2>TOURS</h2><br>
+ <h2 class="display-4">TOURS</h2><br>
  	<h4>Destinos</h4>
  <div class="row text-center slideanim">
  	<div class="col-sm-4">
  		<div class="thumbnail">
- 			<img src="static/images/sky.png" th:src="@{/images/sky.png}"  width="400" height="300"/>
+ 			<img src="/images/sky.jpg" alt="Paris"  width="400" height="300"/>
 	 		<p class="text-dark"><strong>Idas a la nieve</strong></p>
  			<p class="text-dark">Te llevamos al centro de Ski de tu preferencia</p>
  		</div>
  	</div>
  <div class="col-sm-4">
  <div class="thumbnail">
- 	<img src="static/images/green.png" th:src="@{/images/green.png}" alt="New York" width="400" height="300">
+ 	<img src="/images/green.jpg" alt="New York" width="400" height="300">
  	<p><strong>Viñedos</strong></p>
  	<p>Las mejores rutas del vino para que disfrutes junto a tus seres queridos</p>
  </div>
  </div>
  <div class="col-sm-4">
  	<div class="thumbnail">
- 		<img src="static/images/valpo.png" th:src="@{/images/valpo.png}" alt="San Francisco" width="400" height="300">
+ 		<img src="/images/valpo.jpg" alt="San Francisco"  width="400" height="300">
  			<p><strong>Valparaiso y alrededores</strong></p>
  			<p>Ve y conoce uno de los lugares mas iconicos de Chile</p>
  	</div>
@@ -205,7 +242,7 @@
 
 <!--Experiencias Clientes-->
 
- <h2>Lo que nuestros clientes comentan</h2>
+ <h2 class="display-4">Lo que nuestros clientes comentan</h2>
  
  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
  <!-- Indicators -->
@@ -219,7 +256,7 @@
  		<h4>"Muy amables, definitivamente los elijo para mi proximo viaje!"<br><span>Valentina Dávila, youtuber</span></h4>
  	</div>
  <div class="item">
- 		<h4>"Espectacular, muy profesionales!"<br><span>Myrian Mena, gerente Ritz Carlton</span></h4>
+ 		<h4>"Espectacular, muy profesionales!"<br><span>Marco Salas, Emprendedor</span></h4>
  </div>
  
  </div>
@@ -237,61 +274,93 @@
  </div>
 </div>
 
-<!-- Pie de pagina -->
-<footer class="container-fluid text-center">
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="display-4">VIAJES ESPECIALES</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Regístrese y cuentenos su ruta, ¡le enviaremos su cotización!</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Santiago, Chile</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +569 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> flotadelsur@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="¿Para donde quiere ir y cuantos pasajeros" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-primary pull-right" type="submit">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Image of location/map -->
+<img src="/images/van.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Site by MaPa Solutions<a href="https://www.flotadelsur.cl" title="Visit w3schools">WWW.FLOTADELSUR.CL</a></p>
 </footer>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 <script src="/js/bootstrap-table.min.js" th:href="@{/js/bootstrap-table.min.js}"></script>
 
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
 
-<!-- script -->
-<script type="text/javascript">
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+<!-- <script src="/js/bootstrap-table.min.js" th:href="@{/js/bootstrap-table.min.js}"></script>  -->
 
 
-      window.sr = ScrollReveal();
-      sr.reveal('.navbar', {
-        duration:2000,
-        origin: 'bottom'
-      });
-      sr.reveal('.header-content-left', {
-        duration:2000,
-        origin: 'top',
-        distance: '300px'
-      });
-      sr.reveal('.header-content-right', {
-        duration:2000,
-        origin: 'right',
-        distance: '300px'
-      });
-      sr.reveal('.header-btn', {
-        duration:2000,
-        origin: 'bottom',
-        delay: '1000'
-      });
-      sr.reveal('#testimonial', {
-        duration:2000,
-        origin: 'left',
-        distance: '300px',
-        viewFactor: 0.2
-      });
-
-      // Smoot scrolling
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-          });
-        });
-      });
-    </script>
  	
 </body>
 </html>

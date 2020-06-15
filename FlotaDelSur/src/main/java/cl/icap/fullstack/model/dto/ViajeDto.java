@@ -72,12 +72,12 @@ public class ViajeDto {
 		this.comuna_id = comuna_id;
 	}
 
-	public String getVehiculo_id() {
+	public String getVehiculo_ppu() {
 		return vehiculo_ppu;
 	}
 
-	public void setVehiculo_id(String vehiculo_id) {
-		this.vehiculo_ppu = vehiculo_id;
+	public void setVehiculo_ppu(String vehiculo_ppu) {
+		this.vehiculo_ppu = vehiculo_ppu;
 	}
 
 	public Integer getConductor_id() {

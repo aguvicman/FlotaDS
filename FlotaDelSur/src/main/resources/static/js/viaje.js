@@ -1,5 +1,5 @@
 function ViajesController(opcion) {
-	$("#msg").hide();
+	$("#msg").show();
 	$("#msg").removeClass("alert-success").addClass("alert-danger");
 
 	switch(opcion){
@@ -27,7 +27,7 @@ function ViajesController(opcion) {
 			},
 			error : function() {
 				$("#msg").show();
-				$("#msg").html("Error en busqueda de empleados.")
+				$("#msg").html("Error en busqueda de Viajes.")
 			}
 		});       			
 		break;
@@ -107,8 +107,8 @@ function ViajesController(opcion) {
 				'tipoviaje_id': $("#tipoviaje_id").val(),
 				'region_id': $("#region_id").val(),
 				'comuna_id': $("#comuna_id").val(),
-				'vehiculo_id': $("#vehiculo_id").val(),
-				'conductor_ppu': $("#conductor_ppu").val(),
+				'vehiculo_ppu': $("#vehiculo_ppu").val(),
+				'conductor_id': $("#conductor_id").val(),
 				'viaje_fecha': ( $("#viaje_fecha").val() ? $("#viaje_fecha").val() : "0"),
 				'tipopago_id': ( $("#tipopago_id").val() ? $("#tipopago_id").val() : "0"),
 				'costo': $("#costo").val()

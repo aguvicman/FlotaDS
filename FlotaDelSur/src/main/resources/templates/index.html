@@ -15,6 +15,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script  src="/js/viaje.js" th:href="@{/js/viaje.js}"></script>
+	<script  src="/js/Agenda_Viajes.js" th:href="@{/js/Agenda_Viajes.js}"></script>
 	<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
 						
 	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
@@ -101,16 +102,29 @@
 	  			<p>
 	   			<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Valor</span>
-	    			<input id="costo" type="number" class="form-control" name="costo" required>
+	    			<input id="costo" type="number" class="form-control" placeholder="$" name="costo" required>
 	  			</div>
 	  			<p>
 	     			<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Cantidad de Pasajeros</span>
-	    			<input id="cant_pasajeros" type="number" class="form-control" name="cant_pasajeros" required>
+	    			<input id="cant_pasajeros" type="number" class="form-control" placeholder="Nº..." name="cant_pasajeros" required>
 	  			</div>
 	  			<p>
 	  			</p>
-	  			<button type="button" class="btn btn-primary btn-sm align-right" onclick="javascript:ValoresController('insert')">Agendar</button>
+	  			<p>
+	     			<div class="input-group">
+	    			<span class="input-group-text shadow-sm">Fecha</span>
+	    			<input id="fecha" type="date" class="form-control" name="fecha" required>
+	  			</div>
+	  			<p>
+	  			<p>
+	     			<div class="input-group">
+	     			<span class="input-group-text shadow-sm">Correo</span>	
+	    			<input id="correo" type="email" class="form-control" placeholder="ejemplo@correo.com" name="correo" required>
+	  			</div>
+	  			<p>
+	  		<div class="btn-group">
+	  			<button type="button" class="btn btn-primary btn-sm" onclick="javascript:Agenda_ViajesController('insert')">Agendar</button>
 			</div>
 		</div>
 </div>

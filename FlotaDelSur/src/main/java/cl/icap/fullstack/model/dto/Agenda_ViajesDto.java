@@ -1,9 +1,14 @@
 package cl.icap.fullstack.model.dto;
 
 import java.sql.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -18,8 +23,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Agenda_ViajesDto {
-	
+
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "uno")
+	@SequenceGenerator(sequenceName = "uno", allocationSize = 1, name = "uno")
+	@Column(name = "id_agenda")
+
+	
 	private Integer id_agenda;
 	private String origen;
 	private String destino;

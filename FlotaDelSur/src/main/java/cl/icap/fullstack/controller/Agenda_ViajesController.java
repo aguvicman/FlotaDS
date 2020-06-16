@@ -1,6 +1,5 @@
 package cl.icap.fullstack.controller;
 
-
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,8 +19,9 @@ import cl.icap.fullstack.model.dto.Agenda_ViajesDto;
 import cl.icap.fullstack.service.Agenda_ViajesService;
 
 @Controller 
-@RequestMapping(value="/Agenda_Viajes")
+@RequestMapping(value="/agenda_viajes")
 public class Agenda_ViajesController {
+	
 	@Autowired
 	Agenda_ViajesService agenda_ViajesService;
 	

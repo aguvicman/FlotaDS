@@ -1,4 +1,4 @@
-function ValoresController(opcion) {
+function agenda_viajesController(opcion) {
 	$("#msg").hide();
 	$("#msg").removeClass("alert-success").addClass("alert-danger");
 	//var token = $("meta[name='_csrf']").attr("content");
@@ -12,7 +12,7 @@ function ValoresController(opcion) {
 			success : function(res) {
 				$('#agenda_ViajesTable').bootstrapTable('load', res);
 				
-				$('#agenda_ViajesTable tbody').on('click', 'tr', 'close', function () {
+				$('#agenda_ViajesTable tbody').on('click', 'tr',  function () {
 					$("#id_agenda").val($(this).find("td:eq(0)").text());
 					$("#origen").val($(this).find("td:eq(1)").text());
 					$("#destino").val($(this).find("td:eq(2)").text());
@@ -36,7 +36,7 @@ function ValoresController(opcion) {
 		$.ajax({
 			type : "post",
 		   // headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
-			url : "/Agenda_Viajes/get",
+			url : "/agenda_viajes/get",
 			data : "id_agenda="+$("#id_agenda").val(),
 			success : function(res) {
 				if (res == null || res == "") {
@@ -69,14 +69,14 @@ function ValoresController(opcion) {
 				'costo': $("#costo").val(),
 				'cant_pasajeros': $("#cant_pasajeros").val(),
 				'fecha': ( $("#fecha").val() ? $("#fecha").val() : "0"),
-				'correo': $("#correo").val() ? $("correo").val() : "0"),
+				'correo': ( $("#correo").val() ? $("#correo").val() : "0"),
 			};
 	
 	    var postData = JSON.stringify(json);
 
 	    $.ajax({
 			type : "post",
-			url : "/Agenda_Viajes/insert",
+			url : "/agenda_viajes/insert",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
 	        dataType : "json",
@@ -112,7 +112,7 @@ function ValoresController(opcion) {
 
 		$.ajax({
 			type : "post",
-			url : "/Agenda_Viajes/update",
+			url : "/agenda_viajes/update",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
 			dataType : "json",
@@ -135,7 +135,7 @@ function ValoresController(opcion) {
 	case "delete":
 		$.ajax({
 			type : "post",
-			url : "/Agenda_Viajes/delete",
+			url : "/agenda_viajes/delete",
 			data : "id_agenda="+$("#id_agenda").val(),
 			success : function(res) {
 				if (res == 1) {

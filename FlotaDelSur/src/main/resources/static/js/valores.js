@@ -12,7 +12,7 @@ function ValoresController(opcion) {
 			success : function(res) {
 				$('#valoresTable').bootstrapTable('load', res);
 				
-				$('#valoresTable tbody').on('click', 'tr', 'close', function () {
+				$('#valoresTable tbody').on('click', 'tr', function () {
 					$("#origen").val($(this).find("td:eq(0)").text());
 					$("#destino").val($(this).find("td:eq(1)").text());
 					$("#costo").val($(this).find("td:eq(2)").text());

@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<title>Flota del sur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/images/favicon (1).ico" type="image/x-icon">
+	<link rel="icon" href="/images/favicon (1).ico" type="image/x-icon">
 	<!--<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>    -->
 	<!--  Bootstrap core CSS -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
@@ -19,6 +21,7 @@
 	<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
 						
 	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+	
 	
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -55,7 +58,7 @@
   <form action="/action_page.php">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Ingresa correo" name="email">
+      <input type="email" class="form-control" id="emailuno" placeholder="Ingresa correo" name="email">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
@@ -124,7 +127,8 @@
 	  			</div>
 	  			<p>
 	  		<div class="btn-group">
-	  			<button type="button" class="btn btn-primary btn-sm" onclick="javascript:Agenda_ViajesController('insert')">Agendar</button>
+	  			<button type="button" class="btn btn-primary btn-sm" onclick="javascript:agenda_viajesController('insert')">Agendar</button>
+			</div>
 			</div>
 		</div>
 </div>

@@ -38,6 +38,12 @@
     color: #303030;
     font-size: 200px;
   }
+  
+  .display-4 {
+  
+   text-align: center;
+  }
+  
   .thumbnail {
     padding: 0 0 15px 0;
     border: none;

@@ -1,7 +1,9 @@
-package cl.icap.fullstack;
+package cl.fullstack.config;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+import cl.icap.fullstack.FlotaDelSurApplication;
 
 public class AppInitializer extends SpringBootServletInitializer {
 

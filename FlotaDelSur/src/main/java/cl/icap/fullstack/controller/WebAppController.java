@@ -10,10 +10,10 @@ public class WebAppController {
 	public String getHome() {
 	    return "index";
 	}
-
+/*
 	@RequestMapping("/login")
 	public String getLogin() {
 	    return "login";
 	}
-	
+*/	
 }

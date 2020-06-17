@@ -1,11 +1,13 @@
 function ViajesController(opcion) {
 	$("#msg").show();
 	$("#msg").removeClass("alert-success").addClass("alert-danger");
+	var token = $("meta[name='_csrf']").attr("content");
 
 	switch(opcion){
 	case "list":
 		$.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/viaje/list",
 			success : function(res) {
 				$('#viajeTable').bootstrapTable('load', res);
@@ -34,6 +36,7 @@ function ViajesController(opcion) {
 	case "get":
 		$.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/viaje/get",
 			data : "viaje_id="+$("#viaje_id").val(),
 			success : function(res) {
@@ -79,6 +82,7 @@ function ViajesController(opcion) {
 
 	    $.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/viaje/insert",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
@@ -119,6 +123,7 @@ function ViajesController(opcion) {
 
 		$.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/viaje/update",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
@@ -142,6 +147,7 @@ function ViajesController(opcion) {
 	case "delete":
 		$.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/viaje/delete",
 			data : "viaje_id="+$("#viaje_id").val(),
 			success : function(res) {

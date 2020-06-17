@@ -1,13 +1,13 @@
 function agenda_viajesController(opcion) {
 	$("#msg").hide();
 	$("#msg").removeClass("alert-success").addClass("alert-danger");
-	//var token = $("meta[name='_csrf']").attr("content");
+	var token = $("meta[name='_csrf']").attr("content");
 	
 	switch(opcion){
 	case "list":
 		$.ajax({
 			type : "post",
-		  //  headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/Agenda_Viajes/list",
 			success : function(res) {
 				$('#agenda_ViajesTable').bootstrapTable('load', res);
@@ -35,7 +35,7 @@ function agenda_viajesController(opcion) {
 	case "get":
 		$.ajax({
 			type : "post",
-		   // headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/agenda_viajes/get",
 			data : "id_agenda="+$("#id_agenda").val(),
 			success : function(res) {
@@ -77,6 +77,7 @@ function agenda_viajesController(opcion) {
 	    $.ajax({
 			type : "post",
 			url : "/agenda_viajes/insert",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			data : postData,
 			contentType : "application/json; charset=utf-8",
 	        dataType : "json",
@@ -112,6 +113,7 @@ function agenda_viajesController(opcion) {
 
 		$.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/agenda_viajes/update",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
@@ -135,6 +137,7 @@ function agenda_viajesController(opcion) {
 	case "delete":
 		$.ajax({
 			type : "post",
+			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/agenda_viajes/delete",
 			data : "id_agenda="+$("#id_agenda").val(),
 			success : function(res) {

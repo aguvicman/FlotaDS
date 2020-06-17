@@ -1,13 +1,13 @@
 function ValoresController(opcion) {
 	$("#msg").hide();
 	$("#msg").removeClass("alert-success").addClass("alert-danger");
-	//var token = $("meta[name='_csrf']").attr("content");
+	var token = $("meta[name='_csrf']").attr("content");
 	
 	switch(opcion){
 	case "list":
 		$.ajax({
 			type : "post",
-		  //  headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/valores/list",
 			success : function(res) {
 				$('#valoresTable').bootstrapTable('load', res);
@@ -25,14 +25,16 @@ function ValoresController(opcion) {
 			},
 			error : function() {
 				$("#msg").show();
-				$("#msg").html("Error en busqueda de empleados.")
+				$("#msg").html("Error en busqueda de viajes.")
 			}
 		});       			
 		break;
+		
+		/*
 	case "get":
 		$.ajax({
 			type : "post",
-		   // headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/valores/get",
 			data : "origen="+$("#origen").val(),
 			success : function(res) {
@@ -86,7 +88,7 @@ function ValoresController(opcion) {
 
 		$.ajax({
 			type : "post",
-		  //  headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/employees/update",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
@@ -110,7 +112,7 @@ function ValoresController(opcion) {
 	case "delete":
 		$.ajax({
 			type : "post",
-		  //  headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
 			url : "/employees/delete",
 			data : "employee_id="+$("#employee_id").val(),
 			success : function(res) {
@@ -129,8 +131,10 @@ function ValoresController(opcion) {
 			}
 		});
 		break;
+		
 	default:
 		$("#msg").show();
-		$("#msg").html("Opción incorrecta.");
+		$("#msg").html("Opción incorrecta.");*/
 	}
+	
 }

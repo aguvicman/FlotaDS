@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebAppController {
 	
-	@RequestMapping("/")
-	public String getHome() {
+	@RequestMapping("/index")
+	public String getIndex() {
 	    return "index";
 	}
-/*
-	@RequestMapping("/login")
-	public String getLogin() {
-	    return "login";
+
+	@RequestMapping("/adminPage")
+	public String getAdmin() {
+	    return "adminPage";
 	}
-*/	
+
 }

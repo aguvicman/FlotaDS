@@ -6,20 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="/images/favicon (1).ico" type="image/x-icon">
 	<link rel="icon" href="/images/favicon (1).ico" type="image/x-icon">
-	<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
 	<!--  Bootstrap core CSS -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link href="href=/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+	
+	
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css}"></script>
 	<script  src="/js/viaje.js" th:href="@{/js/viaje.js}"></script>
 	<script  src="/js/Agenda_Viajes.js" th:href="@{/js/Agenda_Viajes.js}"></script>
 	<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
-						
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
 	
 	
@@ -42,8 +44,9 @@
         <li><a href="#Cotiza">Cotizador</a></li>
         <li><a href="#Quienes">Quienes somos</a></li>
         <li><a href="#Tours">Tours</a></li>
+        <li><a href="adminPage">Gestión de Itinerario</a></li>
         <li><a href="#contact">Viajes Especiales</a></li>
-        <li><button data-toggle="collapse" data-target="#login">Login</button></li>
+        <li><button data-toggle="collapse" data-target="#ingresar">Login</button></li>
         
         
       </ul>
@@ -52,24 +55,27 @@
 </nav>
 
 <!-- Log In -->
-<div id="login" class="collapse">
+<div id="ingresar" class="collapse">
 <div class="container">
   <h2>LOGIN</h2>
-  <form action="/action_page.php">
+    <div class="alert alert-danger" th:if="${param.error}">
+            		Error en nombre de usuario o password.
+        		</div>
+        		<div class="alert alert-info" th:if="${param.logout}">
+            		Sesión cerrada.
+        		</div>
+  <form th:action="@{/login}" method="post"> 
+ 
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="emailuno" placeholder="Ingresa correo" name="email">
+      <label for="text">Usuario</label>
+      <input type="text" class="form-control" id="username" placeholder="Ingresa usuario" name="email">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Ingresa contraseña" name="pswd">
+      <input type="password" class="form-control" id="password" placeholder="Ingresa contraseña" name="pswd">
     </div>
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> recordar contraseña
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+   
+    <div><input type="submit" class="btn btn-primary" value="Ingresar"/></div>
   </form>
 </div>
 </div>
@@ -91,11 +97,13 @@
 	           
 	            </div>
 	    		<p>
-	    	    <div class="alert alert-danger" id="msg" hidden="false">
+	    	    <div  class="alert" id="info" >
 	  			</div> 
+	  			
 	        	<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Origen</span>
-	    			<input id="origen" type="text" class="form-control" name="origen">
+	    			<input id="origen" type="text" class="form-control" name="origen" required pattern="">
+	    			<div class="valid-feedback">Valido.</div>
 	  			</div>
 	  			<p>
 	  			<div class="input-group">

@@ -1,4 +1,4 @@
-package cl.fullstack.config;
+package cl.icap.fullstack.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/","/index", "/css/*", "/js/*", "/images/*", "/fonts/*", "/valores/**").permitAll()
+				.antMatchers("/", "/index", "/css/*", "/js/*", "/images/*", "/fonts/*", "/valores/list","/agenda_viajes/**").permitAll()
+				.antMatchers("/adminPage","/valores/**").hasAnyRole("admin")
 				.anyRequest()
 				.authenticated()
 				.and()
 			.formLogin()
-				.loginPage("/")
+				.loginPage("/index")
 				.permitAll()
 				.and()
 			.logout()
@@ -48,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return NoOpPasswordEncoder.getInstance();
 	}
 	
-	
+	/*
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
@@ -63,5 +64,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		
 	}
-
+*/
 }

@@ -1,6 +1,6 @@
 function agenda_viajesController(opcion) {
-	$("#msg").hide();
-	$("#msg").removeClass("alert-success").addClass("alert-danger");
+	$("#info").hide();
+	$("#info").removeClass("alert-success").addClass("alert-danger");
 	var token = $("meta[name='_csrf']").attr("content");
 	
 	switch(opcion){
@@ -11,7 +11,6 @@ function agenda_viajesController(opcion) {
 			url : "/Agenda_Viajes/list",
 			success : function(res) {
 				$('#agenda_ViajesTable').bootstrapTable('load', res);
-				
 				$('#agenda_ViajesTable tbody').on('click', 'tr',  function () {
 					$("#id_agenda").val($(this).find("td:eq(0)").text());
 					$("#origen").val($(this).find("td:eq(1)").text());
@@ -83,17 +82,17 @@ function agenda_viajesController(opcion) {
 	        dataType : "json",
 			success : function(res) {
 				if (res == 1) {
-					$("#msg").removeClass("alert-danger").addClass("alert-success");
-					$("#msg").show();
-					$("#msg").html("Registro ingresado correctamente.");
+					$("#info").removeClass("alert-danger").addClass("alert-success");
+					$("#info").show();
+					$("#info").html("Su viaje ha sido agendado.");
 				} else {
-					$("#msg").show();
-					$("#msg").html("No se pudo ingresar el registro.");
+					$("#info").show();
+					$("#info").html("No se pudo agendar su viaje.");
 				}
 			},
 			error : function() {
-				$("#msg").show();
-				$("#msg").html("No se pudo ingresar el registro.");
+				$("#info").show();
+				$("#info").html("error al agendar el viaje.");
 			}
 		});       	
 	    break;

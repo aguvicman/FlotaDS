@@ -1,4 +1,4 @@
-package cl.fullstack.config;
+package cl.icap.fullstack.config;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

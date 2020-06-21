@@ -30,7 +30,7 @@ function ValoresController(opcion) {
 		});       			
 		break;
 		
-		/*
+		
 	case "get":
 		$.ajax({
 			type : "post",
@@ -55,33 +55,25 @@ function ValoresController(opcion) {
 			}
 		});       			
 		break;
-	case "insert":
-		$("#employee_id").val(0),
-		$("#first_name").val(""),
-		$("#last_name").val(""),
-		$("#email").val(""),
-		$("#phone_number").val(""),
-		$("#hire_date").val(new Date()),
-		$("#job_id").val(""),
-		$("#salary").val(0),
-		$("#commission_pct").val(0),
-		$("#manager_id").val(0),
-		$("#departent_id").val(0)	
-	    break;
+/*	case "insert":
+		
+		
+		$("#origen").val(""),
+		$("#destino").val(""),
+		$("#costo").val(0),
+		$("#cant_pasajeros").val(0),
+		
+	    break;*/
 	case "update":
 		var json = 
 			{
-				'employee_id': $("#employee_id").val(),
-				'first_name': $("#first_name").val(),
-				'last_name': $("#last_name").val(),
-				'email': $("#email").val(),
-				'phone_number': $("#phone_number").val(),
-				'hire_date': $("#hire_date").val(),
-				'job_id': $("#job_id").val(),
-				'salary': ( $("#salary").val() ? $("#salary").val() : "0"),
-				'commission_pct': ( $("#commission_pct").val() ? $("#commission_pct").val() : "0"),
-				'manager_id': $("#manager_id").val(),
-				'deparment_id': $("#departent_id").val()
+				
+				'origen': $("#origen").val(),
+				'destino': $("#destino").val(),
+				'costo': ( $("#costo").val() ? $("#costo").val() : "0"),
+				'cant_pasajeros': ( $("#cant_pasajeros").val() ? $("#cant_pasajeros").val() : "0"),
+ 			
+			
 			};
 
 		var postData = JSON.stringify(json);
@@ -89,7 +81,7 @@ function ValoresController(opcion) {
 		$.ajax({
 			type : "post",
 		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
-			url : "/employees/update",
+			url : "/valores/update",
 			data : postData,
 			contentType : "application/json; charset=utf-8",
 			dataType : "json",
@@ -113,8 +105,8 @@ function ValoresController(opcion) {
 		$.ajax({
 			type : "post",
 		    headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
-			url : "/employees/delete",
-			data : "employee_id="+$("#employee_id").val(),
+			url : "/valores/delete",
+			data : "tramo_id="+$("#tramo_id").val(),
 			success : function(res) {
 				if (res == 1) {
 					$("#msg").removeClass("alert-danger").addClass("alert-success");
@@ -134,7 +126,7 @@ function ValoresController(opcion) {
 		
 	default:
 		$("#msg").show();
-		$("#msg").html("Opción incorrecta.");*/
+		$("#msg").html("Opción incorrecta.");
 	}
 	
 }

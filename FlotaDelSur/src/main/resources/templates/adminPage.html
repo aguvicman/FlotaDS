@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+	<meta charset="utf-8">
+	<title>Flota del sur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/images/favicon (1).ico" type="image/x-icon">
+	<link rel="icon" href="/images/favicon (1).ico" type="image/x-icon">
+	<!--  <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/> -->
+	<!--  Bootstrap core CSS -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<link href="href=/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script  src="/js/viaje.js" th:href="@{/js/viaje.js}"></script>
+	<script  src="/js/Agenda_Viajes.js" th:href="@{/js/Agenda_Viajes.js}"></script>
+	<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+	
+	
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+	
+<!--Navigation-->
+    <nav class="navbar navbar-default  navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      		<img  src="images/logo.png"  class="img-responsive" alt="Responsive image" width="400" height="100">               
+      </button>
+      
+      <a class="navbar-brand" href="#myPage"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index">Home</a></li>
+        <li><a href="javascript:;" onclick="document.getElementById('logout').submit();">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>  
+  <!--Header-->
+<header id="Home">
+<div class="jumbotron text-center">
+ <h1 class="display-1">FLOTA DEL SUR</h1>
+ <h5 class="h2">TOURS Y TRANSFER</h5>
+</div>
+<!-- Cotizador -->
+<div class="container">
+	    <div class="panel panel-default " id="Cotiza">
+	    	<div class="panel-body ">
+	   	    	<h3 class="display-4">Gestión de Itinerario</h3>
+	   			<p>
+	   			<div class="btn-group">
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('list')">Listar</button>
+	            </div>
+	    		
+	    		<div class="btn-group">
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('get')">Buscar</button>
+	            </div>
+	    		
+	    		<div class="btn-group">
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('insert')">Nuevo</button>
+	            </div>
+	    		
+	    		<div class="btn-group">
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('update')">Actualizar</button>
+	            </div>
+	    	
+	    		<div class="btn-group">
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('delete')">Itinerarios</button>
+	            </div>
+	    	    <div  class="alert" id="info" >
+	  			</div> 
+	  			
+	        	<div class="input-group">
+	    			<span class="input-group-text shadow-sm">Origen</span>
+	    			<input id="origen" type="text" class="form-control" name="origen" required pattern="">
+	    			<div class="valid-feedback">Valido.</div>
+	  			</div>
+	  			<p>
+	  			<div class="input-group">
+	    			<span class="input-group-text shadow-sm">Destino</span>
+	    			<input id="destino" type="text" class="form-control" name="destino" required>
+	  			</div>
+	  			<p>
+	   			<div class="input-group">
+	    			<span class="input-group-text shadow-sm">Valor</span>
+	    			<input id="costo" type="number" class="form-control" placeholder="$" name="costo" required>
+	  			</div>
+	  			<p>
+	     			<div class="input-group">
+	    			<span class="input-group-text shadow-sm">Cantidad de Pasajeros</span>
+	    			<input id="cant_pasajeros" type="number" class="form-control" placeholder="Nº..." name="cant_pasajeros" required>
+	  			</div>
+	  			<p>
+	  			</p>
+	  			<p>
+			</div>
+		</div>
+</div>
+
+<!-- Modal -->
+	<div id="myModal" class="modal fade"  role="dialog">
+  		<div class="modal-dialog modal-lg">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+      		<div class="modal-header">
+      		<h4 class="modal-title">ITINERARIOS</h4>
+        	<!-- <button type="button" class="close" data-dismiss="modal">Cerrar</button>  -->	
+      		</div>
+      		<div class="modal-body">
+      			<div class="table-responsive" style='height:100%' id='tableDivContainer'>
+      				<table class="table table-condensed" id='valoresTable' data-toggle="table" data-height="299">
+		        	<thead><tr>
+						<th data-field="origen">Origen</th>
+						<th data-field="destino">Destino</th>
+						<th data-field="costo">Valor</th>
+						<th data-field="cant_pasajeros">Cantidad de Pasajeros</th>
+					</tr>
+		        	</thead>
+		        	</table>
+		        </div>
+	      	</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      		</div>
+    	</div>
+		</div>
+	</div>
+
+</header>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Site by MaPa Solutions<a href="https://www.flotadelsur.cl" title="Visit w3schools">WWW.FLOTADELSUR.CL</a></p>
+</footer>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<form th:action="@{/logout}" method="post" id="logout"></form>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script src="/js/bootstrap-table.min.js" th:href="@{/js/bootstrap-table.min.js}"></script>
+
+
+
+ 	
+</body>
+</html>

@@ -5,41 +5,32 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.2.5.RELEASE</version>
+		<relativePath/>
 	</parent>
 	<groupId>cl.icap.fullstack</groupId>
-	<artifactId>FlotaDelSur</artifactId>
+	<artifactId>Modulo5_springProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<description>
+		Ejemplo SpringBoot-Thymeleaf-MVC-Bootstrap-CRUD 
+	</description>
 	<packaging>war</packaging>
-	<name>FlotaDelSur</name>
-	<description>Proyecto Spring Flota del Sur</description>
+	<name>Modulo5_springProject</name>
+
 	<properties>
 		<java.version>1.8</java.version>
 		<hibernate.version>5.4.1.Final</hibernate.version>
 	</properties>
 	<dependencies>
-	<dependency>
-		  <groupId>org.springframework.boot</groupId>
-		  <artifactId>spring-boot-starter-security</artifactId>
+    	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-test</artifactId>
-		  <scope>test</scope>
-		</dependency>
-		<dependency>
-    		<groupId>org.thymeleaf.extras</groupId>
-    		<artifactId>thymeleaf-extras-springsecurity5</artifactId>
-		</dependency>	
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
-	</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -57,16 +48,16 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-thymeleaf</artifactId>
+    	</dependency>
+    	<dependency>
+    		<groupId>nz.net.ultraq.thymeleaf</groupId>
+    		<artifactId>thymeleaf-layout-dialect</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>nz.net.ultraq.thymeleaf</groupId>
-			<artifactId>thymeleaf-layout-dialect</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.oracle.ojdbc</groupId>
@@ -75,17 +66,26 @@
 			<systemPath>/Users/marco/Desktop/TOMCAT/apache-tomcat-9.0.31/lib/ojdbc8.jar</systemPath>
 		</dependency>
 		<dependency>
-				<groupId>com.google.code.gson</groupId>
-				<artifactId>gson</artifactId>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<dependency>
+		  <groupId>org.springframework.security</groupId>
+		  <artifactId>spring-security-test</artifactId>
+		  <scope>test</scope>
+		</dependency>
+		<dependency>
+    		<groupId>org.thymeleaf.extras</groupId>
+    		<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>		
 	</dependencies>
+
 	<build>
-	<finalName>${project_artifactId}##${project_version}</finalName>
+		<finalName>${project_artifactId}##${project_version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -96,7 +96,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://localhost:8090/manager/text</url>
+					<url>http://localhost:8080/manager/text</url>
 					<server>TomcatServer</server>
 					<path>/${project.artifactId}</path>
 					<update>true</update>
@@ -104,8 +104,6 @@
 					<password>1234</password>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
-
 </project>

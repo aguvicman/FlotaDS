@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="/images/favicon (1).ico" type="image/x-icon">
 	<link rel="icon" href="/images/favicon (1).ico" type="image/x-icon">
-	<!--  <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/> -->
+	<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
 	<!--  Bootstrap core CSS -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -74,15 +74,18 @@
 	            </div>
 	    	
 	    		<div class="btn-group">
-	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('delete')">Itinerarios</button>
+	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('delete')">Borrar</button>
 	            </div>
-	    	    <div  class="alert" id="info" >
+	    	    <div  class="alert" id="msg" >
 	  			</div> 
+	  			<div class="input-group">
+	    			<span class="input-group-text shadow-sm">ID</span>
+	    			<input id="tramo_id" type="number" class="form-control" name="tramo_id" required>
+	  			</div>
 	  			
 	        	<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Origen</span>
-	    			<input id="origen" type="text" class="form-control" name="origen" required pattern="">
-	    			<div class="valid-feedback">Valido.</div>
+	    			<input id="origen" type="text" class="form-control" name="origen" required>
 	  			</div>
 	  			<p>
 	  			<div class="input-group">

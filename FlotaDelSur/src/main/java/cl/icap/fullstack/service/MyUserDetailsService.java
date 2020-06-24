@@ -13,7 +13,7 @@ import cl.icap.fullstack.model.repository.UsuariosRepository;
 
 
 @Service
-public class MyUsersDetailsService implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
 	
 	@Autowired
 	UsuariosRepository usuariosRepository;

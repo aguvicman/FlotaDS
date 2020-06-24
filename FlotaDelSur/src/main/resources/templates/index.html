@@ -1,109 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	<title>Flota del sur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="/images/favicon (1).ico" type="image/x-icon">
-	<link rel="icon" href="/images/favicon (1).ico" type="image/x-icon">
-    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+		<link rel="icon" href="/images/favicon (1).ico" type="image/x-icon">
+			<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+	
 	<!--  Bootstrap core CSS -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-	<link href="href=/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
-	
+  		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+			<link href="href=/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/normalize.css">
-	<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
+		<link rel="stylesheet" href="/css/normalize.css">
+			<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css}"></script>
-	<script  src="/js/viaje.js" th:href="@{/js/viaje.js}"></script>
-	<script  src="/js/Agenda_Viajes.js" th:href="@{/js/Agenda_Viajes.js}"></script>
-	<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
-	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+				<script  src="/js/viaje.js" th:href="@{/js/viaje.js}"></script>
+					<script  src="/js/Agenda_Viajes.js" th:href="@{/js/Agenda_Viajes.js}"></script>
+						<script  src="/js/valores.js" th:href="@{/js/valores.js}"></script>
+   							 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+								<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
 	
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-	
+
 <!--Navigation-->
+	<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <nav class="navbar navbar-default  navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      		<img  src="images/logo.png"  class="img-responsive" alt="Responsive image" width="400" height="100">               
-      </button>
-      
-      <a class="navbar-brand" href="#myPage"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+  		<div class="container">
+   			 <div class="navbar-header">
+      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      				<img  src="images/logo.png"  class="img-responsive" alt="Responsive image" width="400" height="100">               
+      			</button>
+      			<a class="navbar-brand" href="#myPage"></a>
+   		 	</div>
+    	<div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#Home">Home</a></li>
         <li><a href="#Cotiza">Cotizador</a></li>
         <li><a href="#Quienes">Quienes somos</a></li>
         <li><a href="#Tours">Tours</a></li>
-        <li><a href="adminPage">Gestión de Itinerario</a></li>
         <li><a href="#contact">Viajes Especiales</a></li>
-        <li><button data-toggle="collapse" data-target="#ingresar">Login</button></li>
-        
-        
+        <li><button data-toggle="collapse" data-target="#login">Login</button></li>
       </ul>
-    </div>
-  </div>
-</nav>
+    		</div>
+  		</div>
+	</nav>
 
 <!-- Log In -->
-<div id="ingresar" class="collapse">
-<div class="container">
-  <h2>LOGIN</h2>
-    <div class="alert alert-danger" th:if="${param.error}">
+<div id="login" class="collapse">
+	<div class="container">
+ 		 <h2>LOGIN</h2>
+ 		 
+ <div class="alert alert-danger" th:if="${param.error}">
             		Error en nombre de usuario o password.
         		</div>
-        		<div class="alert alert-info" th:if="${param.logout}">
+ <div class="alert alert-info" th:if="${param.logout}">
             		Sesión cerrada.
         		</div>
   <form th:action="@{/login}" method="post"> 
- 
     <div class="form-group">
-      <label for="text">Usuario</label>
-      <input type="text" class="form-control" id="username" placeholder="Ingresa usuario" name="email">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="username" placeholder="Nombre Usuario" name="name">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Ingresa contraseña" name="pswd">
+      <input type="password" class="form-control" id="password" placeholder="Ingresa contraseña" name="password">
     </div>
-   
-    <div><input type="submit" class="btn btn-primary" value="Ingresar"/></div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> recordar contraseña
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Ingresar</button>
   </form>
-</div>
+	</div>
 </div>
   
-  <!--Header-->
-<header id="Home">
-<div class="jumbotron text-center">
- <h1 class="display-1">FLOTA DEL SUR</h1>
- <h5 class="h2">TOURS Y TRANSFER</h5>
-</div>
+ <!--Header-->
+	<header id="Home">
+		<div class="jumbotron text-center">
+ 			<h1 class="display-1">FLOTA DEL SUR</h1>
+				 <h5 class="h2">TOURS Y TRANSFER</h5>
+		</div>
+		
 <!-- Cotizador -->
-<div class="container">
+	<div class="container">
 	    <div class="panel panel-default " id="Cotiza">
 	    	<div class="panel-body ">
 	   	    	<h3 class="display-4">COTIZA CON NOSOTROS</h3>
 	   			<p>
 	   			<div class="btn-group">
 	               	<button type="button" class="btn btn-primary btn-sm" onclick="javascript:ValoresController('list')">Itinerarios</button>
-	           
 	            </div>
 	    		<p>
 	    	    <div  class="alert" id="info" >
 	  			</div> 
-	  			
 	        	<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Origen</span>
-	    			<input id="origen" type="text" class="form-control" name="origen" required pattern="">
-	    			<div class="valid-feedback">Valido.</div>
+	    			<input id="origen" type="text" class="form-control" name="origen">
 	  			</div>
 	  			<p>
 	  			<div class="input-group">
@@ -116,30 +113,27 @@
 	    			<input id="costo" type="number" class="form-control" placeholder="$" name="costo" required>
 	  			</div>
 	  			<p>
-	     			<div class="input-group">
+	     		<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Cantidad de Pasajeros</span>
 	    			<input id="cant_pasajeros" type="number" class="form-control" placeholder="Nº..." name="cant_pasajeros" required>
 	  			</div>
 	  			<p>
-	  			</p>
-	  			<p>
-	     			<div class="input-group">
+	     		<div class="input-group">
 	    			<span class="input-group-text shadow-sm">Fecha</span>
 	    			<input id="fecha" type="date" class="form-control" name="fecha" required>
 	  			</div>
 	  			<p>
-	  			<p>
-	     			<div class="input-group">
+	     		<div class="input-group">
 	     			<span class="input-group-text shadow-sm">Correo</span>	
 	    			<input id="correo" type="email" class="form-control" placeholder="ejemplo@correo.com" name="correo" required>
 	  			</div>
 	  			<p>
-	  		<div class="btn-group">
+	  			<div class="btn-group">
 	  			<button type="button" class="btn btn-primary btn-sm" onclick="javascript:agenda_viajesController('insert')">Agendar</button>
-			</div>
+				</div>
 			</div>
 		</div>
-</div>
+	</div>
 
 <!-- Modal -->
 	<div id="myModal" class="modal fade"  role="dialog">
@@ -148,7 +142,6 @@
     	<div class="modal-content">
       		<div class="modal-header">
       		<h4 class="modal-title">ITINERARIOS</h4>
-        	<!-- <button type="button" class="close" data-dismiss="modal">Cerrar</button>  -->	
       		</div>
       		<div class="modal-body">
       			<div class="table-responsive" style='height:100%' id='tableDivContainer'>
@@ -207,7 +200,7 @@
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-heart logo-small"></span>
       <h4>ENERGÍA</h4>
-      <p>Porqué amamos nuestro trabajo lo hacemos con pasión!</p>
+      <p>Porque amamos nuestro trabajo lo hacemos con pasión!</p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-lock logo-small"></span>
@@ -225,7 +218,7 @@
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-certificate logo-small"></span>
       <h4>EXPERIENCIA</h4>
-      <p>Más de 30 años de experiencia en el rubro y un amplio conocimiento de las rutas y destinos turisticos</p>
+      <p>Mas de 30 años de experiencia en el rubro y un amplio conocimiento de las rutas y destinos turísticos</p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-wrench logo-small"></span>
@@ -279,7 +272,7 @@
  	
  <div class="carousel-inner" role="listbox">
  	<div class="item active">
- 		<h4>"Muy amables, definitivamente los elijo para mi proximo viaje!"<br><span>Valentina Dávila, youtuber</span></h4>
+ 		<h4>"Muy amables, definitivamente los elijo para mi próximo viaje!"<br><span>Valentina Dávila, youtuber</span></h4>
  	</div>
  <div class="item">
  		<h4>"Espectacular, muy profesionales!"<br><span>Marco Salas, Emprendedor</span></h4>
@@ -305,7 +298,7 @@
   <h2 class="display-4">VIAJES ESPECIALES</h2>
   <div class="row">
     <div class="col-sm-5">
-      <p>Regístrese y cuentenos su ruta, ¡le enviaremos su cotización!</p>
+      <p>Regístrese y cuentenos su ruta, le enviaremos su cotización!</p>
       <p><span class="glyphicon glyphicon-map-marker"></span> Santiago, Chile</p>
       <p><span class="glyphicon glyphicon-phone"></span> +569 1515151515</p>
       <p><span class="glyphicon glyphicon-envelope"></span> flotadelsur@gmail.com</p>
@@ -319,7 +312,7 @@
           <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="¿Para donde quiere ir y cuantos pasajeros" rows="5"></textarea><br>
+      <textarea class="form-control" id="comments" name="comments" placeholder="�Para donde quiere ir y cuantos pasajeros" rows="5"></textarea><br>
       <div class="row">
         <div class="col-sm-12 form-group">
           <button class="btn btn-primary pull-right" type="submit">Enviar</button>
@@ -389,4 +382,3 @@ $(document).ready(function(){
 
  	
 </body>
-</html>

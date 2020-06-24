@@ -5,15 +5,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebAppController {
+		
 	
-	@RequestMapping("/index")
-	public String getIndex() {
+	
+	@RequestMapping("/")
+	public String getHome() {
 	    return "index";
 	}
 
+	
+	@RequestMapping("/index")
+	public String getAdmi() {
+	    return "adminPage";
+	}
+	
 	@RequestMapping("/adminPage")
-	public String getAdmin() {
+	public String getAdminpage() {
 	    return "adminPage";
 	}
 
+
+	
 }

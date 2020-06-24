@@ -32,8 +32,8 @@ public class UsuariosDto {
 	public String getUsername() {
 		return userName;
 	}
-	public void setUsername(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.userName = username;
 	}
 	public String getPassword() {
 		return password;
